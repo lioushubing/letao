@@ -22,7 +22,7 @@
   </div>
   <div class="nav">
     <ul>
-      <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+      <li><a class="active" href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
       <li>
         <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
         <!-- 用于切换展示的二级列表 -->
@@ -52,19 +52,35 @@
     <!-- 面包屑导航 -->
     <ol class="breadcrumb mt_20" >
       <li><a href="index.html">管理系统</a></li>
-      <li class="active">首页</li>
+      <li class="active">用户管理</li>
     </ol>
-    <!-- data-toggle="modal"         标记用于切换模态框
-         data-target="#logoutModal"  通过id关联具体显示哪一个模态框
-    ->
-    <!--<button data-toggle="modal" data-target="#logoutModal">我是按钮</button>-->
 
+    <!-- 表格 -->
+    <!-- table 基本样式
+         table-bordered  添加边框
+         table-hover 添加鼠标悬停效果
+    -->
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>序号</th>
+          <th>用户名</th>
+          <th>手机号</th>
+          <th>状态</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>itcast</td>
+          <td>15757771111</td>
+          <td>正常</td>
+          <td><button class="btn btn-danger">禁用</button></td>
+        </tr>
+      </tbody>
+    </table>
 
-    <!-- 准备两个具备宽高的容器 -->
-    <div class="lt_content">
-      <div class="echarts_left pull-left"></div>
-      <div class="echarts_right pull-right"></div>
-    </div>
 
   </div>
 
@@ -107,10 +123,8 @@
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
-<script src="./lib/echarts/echarts.min.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/isLogin.js"></script>
-<script src="./js/index.js"></script>
 
 </body>
 </html>

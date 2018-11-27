@@ -1,3 +1,28 @@
+/* lvha */
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.red {
+  color: #A94442;
+}
+
+/* 需求: 所有表格的 td 和 th 都内容居中 */
+.table.table-bordered td,
+.table.table-bordered th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+
 .body_bg {
   background-color: #222D32;
 }
@@ -11,4 +36,129 @@
 
 .mt_150 {
   margin-top: 150px;
+}
+.mt_20 {
+  margin-top: 20px;
+}
+
+#nprogress .bar {
+  /*background-color: red;*/
+}
+
+
+.lt_aside {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 180px;
+  height: 100%;
+  background-color: #222D32;
+  z-index: 999;
+  transition: all 1s;
+}
+.lt_aside.hidemenu {
+  left: -180px;
+}
+
+
+.lt_aside .brand {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 25px;
+  background-color: #367FA9;
+}
+.lt_aside .brand a {
+  color: #fff;
+}
+.lt_aside .user {
+  padding-top: 30px;
+}
+.lt_aside .user img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.lt_aside .user p {
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+}
+
+
+.lt_aside .nav {
+  margin-top: 30px;
+}
+.lt_aside .nav li a {
+  height: 40px;
+  line-height: 40px;
+  display: block;
+  color: #fff;
+  padding-left: 40px;
+  border-left: 3px solid transparent;
+}
+.lt_aside .nav li a.active {
+  background-color: #1D1F21;
+  border-left: 3px solid #069;
+}
+
+.lt_aside .nav li a i {
+  margin-right: 5px;
+}
+/* 专门定制 二级列表的 padding */
+.lt_aside .nav li .child {
+  display: none;
+}
+.lt_aside .nav li .child a {
+  padding-left: 60px;
+}
+
+
+
+.lt_topbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #3C8DBC;
+  padding-left: 180px;
+  transition: 1s;
+  z-index: 998;
+}
+.lt_topbar.hidemenu {
+  padding-left: 0px;
+}
+
+.lt_topbar .icon_left,
+.lt_topbar .icon_right {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+}
+
+
+.lt_main {
+  height: 2000px;
+  padding-left: 180px;
+  padding-top: 50px;
+  transition: all 1s;
+}
+.lt_main.hidemenu {
+  padding-left: 0px;
+}
+
+
+.echarts_left,
+.echarts_right {
+  width: 48%;
+  height: 400px;
 }

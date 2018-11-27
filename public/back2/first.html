@@ -26,8 +26,8 @@
       <li>
         <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
         <!-- 用于切换展示的二级列表 -->
-        <div class="child">
-          <a href="first.html">一级分类</a>
+        <div class="child" style="display: block">
+          <a class="active" href="first.html">一级分类</a>
           <a href="second.html">二级分类</a>
         </div>
       </li>
@@ -58,13 +58,6 @@
          data-target="#logoutModal"  通过id关联具体显示哪一个模态框
     ->
     <!--<button data-toggle="modal" data-target="#logoutModal">我是按钮</button>-->
-
-
-    <!-- 准备两个具备宽高的容器 -->
-    <div class="lt_content">
-      <div class="echarts_left pull-left"></div>
-      <div class="echarts_right pull-right"></div>
-    </div>
 
   </div>
 
@@ -107,10 +100,8 @@
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
-<script src="./lib/echarts/echarts.min.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/isLogin.js"></script>
-<script src="./js/index.js"></script>
 
 </body>
 </html>
