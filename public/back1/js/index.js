@@ -9,7 +9,7 @@ option1 = {
     tooltip: {},
     // 图例
     legend: {
-        data:['人数', '销量','haha']
+        data:['人数', '销量']
     },
     // x轴
     xAxis: {
@@ -23,15 +23,9 @@ option1 = {
         data: [100, 60, 46, 40, 10, 20]
     },{
         name: '销量',
-        type: 'line',
+        type: 'bar',
         data: [50, 20, 666, 10, 10, 20]
-    },
-        {
-            name: 'haha',
-            type: 'pie',
-            data: [50, 20, 40, 80, 40, 80]
-        }]
-};
+    }]}
 
 echarts_left.setOption(option1);
 var echarts_right = echarts.init(document.querySelector(".echarts_right"));
