@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>乐淘电商</title>
+  <!-- meta:vp 设置视口 -->
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="./lib/mui/css/mui.css">
+  <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/category.css">
+</head>
+<body>
+
+<!-- 由于内部盒子需要实现区域滚动, 所以外层是一个全屏容器 -->
+<div class="lt_container">
+  <div class="lt_header">
+    <a href="index.html" class="icon_left"><i class="fa fa-home"></i></a>
+    <h3>乐淘云购</h3>
+    <a href="search.html" class="icon_right"><i class="fa fa-search"></i></a>
+  </div>
+
+
+  <div class="lt_main">
+    <div class="lt_category_left">
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+          <!--这里放置真实显示的DOM内容-->
+          <ul>
+            <!-- 挖坑 -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="lt_category_right">
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+          <!--这里放置真实显示的DOM内容-->
+          <ul>
+            <!-- 挖个坑 -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="lt_footer">
+    <ul>
+      <li>
+        <a href="index.html">
+          <i class="fa fa-home"></i>
+          <p>首页</p>
+        </a>
+      </li>
+      <li>
+        <a href="category.html" class="current">
+          <i class="fa fa-bars"></i>
+          <p>分类页</p>
+        </a>
+      </li>
+      <li>
+        <a href="cart.html">
+          <i class="fa fa-shopping-cart"></i>
+          <p>购物车</p>
+        </a>
+      </li>
+      <li>
+        <a href="user.html">
+          <i class="fa fa-user"></i>
+          <p>用户中心</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script type="text/html" id="leftTpl">
+  {{ each rows v i }}
+    <li><a data-id="{{ v.id }}" class="{{ i===0 ? 'current' : '' }}" href="#">{{ v.categoryName }}</a></li>
+  {{ /each }}
+</script>
+
+<script type="text/html" id="rightTpl">
+  {{ if rows.length === 0 }}
+    <p>没有更多分类数据了</p>
+  {{ else }}
+    {{ each rows v i }}
+    <li>
+      <a href="#">
+        <img src="{{ v.brandLogo }}" alt="">
+        <p>{{ v.brandName }}</p>
+      </a>
+    </li>
+    {{ /each }}
+  {{ /if }}
+
+
+</script>
+
+
+<script src="./lib/mui/js/mui.js"></script>
+<script src="./lib/zepto/zepto.min.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/category.js"></script>
+</body>
+</html>

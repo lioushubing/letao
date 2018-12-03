@@ -219,8 +219,8 @@ $(function() {
     paramsStr += "&picName1="+ picArr[0].picName +"&picAddr1=" + picArr[0].picAddr;
     paramsStr += "&picName2="+ picArr[1].picName +"&picAddr2=" + picArr[1].picAddr;
     paramsStr += "&picName3="+ picArr[2].picName +"&picAddr3=" + picArr[2].picAddr;
-
-    $.ajax({
+      console.log(paramsStr);
+      $.ajax({
       type: "post",
       url: "/product/addProduct",
       data: paramsStr,

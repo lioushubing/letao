@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>乐淘电商</title>
+  <!-- meta:vp 设置视口 -->
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="./lib/mui/css/mui.css">
+  <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/searchList.css">
+</head>
+<body>
+
+<!-- 由于内部盒子需要实现区域滚动, 所以外层是一个全屏容器 -->
+<div class="lt_container">
+  <div class="lt_header">
+    <!-- history.go(-1)  history.back(); 返回上一页 -->
+    <a href="javascript: history.go(-1);" class="icon_left"><i class="mui-icon mui-icon-back"></i></a>
+    <h3>搜索中心</h3>
+  </div>
+
+
+  <div class="lt_main">
+    <div class="mui-scroll-wrapper">
+      <div class="mui-scroll">
+        <!--这里放置真实显示的DOM内容-->
+
+        <!-- 搜索框 -->
+        <div class="lt_search">
+          <input type="text" placeholder="请输入搜索关键字" class="search_input">
+          <button class="mui-btn mui-btn-primary search_btn">搜索</button>
+        </div>
+
+        <!-- 乐淘排序 -->
+        <div class="lt_sort">
+          <a href="#"><span>上架时间</span><i class="fa fa-angle-down"></i></a>
+          <a href="#"><span>价格</span><i class="fa fa-angle-down"></i></a>
+          <a href="#"><span>库存</span><i class="fa fa-angle-down"></i></a>
+          <a href="#"><span>折扣</span><i class="fa fa-angle-down"></i></a>
+        </div>
+
+        <!-- 产品区域 -->
+        <div class="lt_product">
+          <ul class="mui-clearfix">
+            <li>
+              <a href="#">
+                <img src="./images/product.jpg" alt="">
+                <p class="mui-ellipsis-2">adidas阿迪达斯 男式 场下休闲篮球鞋S83700场下休闲篮球鞋S83700 </p>
+                <p>
+                  <span class="price">&yen;580</span>
+                  <span class="oldPrice">&yen;666</span>
+                </p>
+                <button class="mui-btn mui-btn-primary">立即购买</button>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./images/product.jpg" alt="">
+                <p class="mui-ellipsis-2">adidas阿迪达斯 男式 场下休闲篮球鞋S83700场下休闲篮球鞋S83700 </p>
+                <p>
+                  <span class="price">&yen;580</span>
+                  <span class="oldPrice">&yen;666</span>
+                </p>
+                <button class="mui-btn mui-btn-primary">立即购买</button>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./images/product.jpg" alt="">
+                <p class="mui-ellipsis-2">adidas阿迪达斯 男式 场下休闲篮球鞋S83700场下休闲篮球鞋S83700 </p>
+                <p>
+                  <span class="price">&yen;580</span>
+                  <span class="oldPrice">&yen;666</span>
+                </p>
+                <button class="mui-btn mui-btn-primary">立即购买</button>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="./images/product.jpg" alt="">
+                <p class="mui-ellipsis-2">adidas阿迪达斯 男式 场下休闲篮球鞋S83700场下休闲篮球鞋S83700 </p>
+                <p>
+                  <span class="price">&yen;580</span>
+                  <span class="oldPrice">&yen;666</span>
+                </p>
+                <button class="mui-btn mui-btn-primary">立即购买</button>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="lt_footer">
+    <ul>
+      <li>
+        <a href="index.html">
+          <i class="fa fa-home"></i>
+          <p>首页</p>
+        </a>
+      </li>
+      <li>
+        <a href="category.html">
+          <i class="fa fa-bars"></i>
+          <p>分类页</p>
+        </a>
+      </li>
+      <li>
+        <a href="cart.html">
+          <i class="fa fa-shopping-cart"></i>
+          <p>购物车</p>
+        </a>
+      </li>
+      <li>
+        <a href="user.html">
+          <i class="fa fa-user"></i>
+          <p>用户中心</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<script src="./lib/mui/js/mui.js"></script>
+<script src="./lib/zepto/zepto.min.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/searchList.js"></script>
+</body>
+</html>

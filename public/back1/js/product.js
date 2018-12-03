@@ -99,6 +99,10 @@ $(function () {
                         notEmpty: {
                             message: '请输入商品库存'
                         },
+                        regexp: {
+                            regexp: /^[1-9]\d*$/,
+                            message: '商品库存格式, 必须是非零开头的数字'
+                        }
 
                     }},
                 size:{
@@ -107,7 +111,10 @@ $(function () {
                         notEmpty: {
                             message: '请输入商品尺码'
                         },
-
+                        regexp: {
+                            regexp: /^\d{2}-\d{2}$/,
+                            message: '尺码格式, 必须是 xx-xx格式, xx为两位数字, 例如 36-44'
+                        }
                     }},
                 oldPrice:{
                     validators: {
@@ -125,7 +132,7 @@ $(function () {
                         },
 
                     }},
-                pic1:{
+                picStatus:{
                     validators: {
                         //不能为空
                         notEmpty: {
@@ -151,6 +158,88 @@ $(function () {
 
 
     })
+//a注册点击事件
+    $('#str2').on('click','a',function () {
+        // alert('hahaha')
+     var  text=$(this).text()
+     $('#dropdownText').text(text)
+        var id=$(this).data('id')
+        console.log(id);
+     $('#brandId').val(id)
+        $("#form").data('bootstrapValidator').updateStatus('brandId','VALID')
+
+
+    })
+
+
+var picArr=[]
+//文件上传插件
+    $("#fileupload").fileupload({
+        dataType:"json",
+        //e：事件对象
+        //data：图片上传后的对象，通过data.result.picAddr可以获取上传后的图片地址
+        done:function (e, data) {
+            console.log(data.result);
+            var picObj=data.result;
+            picArr.unshift(picObj)
+            var url=picObj.picAddr
+
+            $('#boxImg').prepend(' <img src="'+url+'" style="width: 100px" >')
+        //    判断个数
+            if(picArr.length>3){
+                picArr.pop()
+                $('#boxImg img:last-of-type').remove()
+            }
+
+            if (picArr.length===3) {
+
+                $("#form").data('bootstrapValidator').updateStatus('picStatus','VALID')
+            }
+        }
+    });
+
+
+
+//表单上传成功事件
+    $("#form").on('success.form.bv', function (e) {
+        e.preventDefault();
+        //使用ajax提交逻辑
+     var productStr=$("#form").serialize()
+        productStr=decodeURIComponent(productStr)
+        // console.log(productStr);
+        productStr+='&picName1='+picArr[0].picName+'&picAddr1='+picArr[0].picAddr
+        productStr+='&picName2='+picArr[1].picName+'&picAddr2='+picArr[1].picAddr
+        productStr+='&picName3='+picArr[2].picName+'&picAddr3='+picArr[2].picAddr
+        console.log(productStr);
+
+     $.ajax({
+         url:'/product/addProduct',
+         type:'post',
+         data:productStr,
+         dataType:'json',
+         success:function (info) {
+             // console.log(info);
+
+             if (info.success){
+
+                 $("#form").data('bootstrapValidator').resetForm(true)
+                 $("#productModal").modal('hide')
+                 $('#dropdownText').text('选择二级分类')
+                 $('#boxImg img').remove();
+                 page=1
+                 render()
+                 picArr=[]
+
+             }
+         }
+
+
+
+     })
+
+
+    });
+
 
 
 
