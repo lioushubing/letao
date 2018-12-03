@@ -49,9 +49,133 @@
     <div class='container-fluid'>
         <ol class="breadcrumb">
             <li><a href="#">管理系统</a></li>
-            <li class='active'>首页</li>
+            <li class='active'> 商品管理</li>
 
         </ol>
+      <!--列表-->
+        <button class='btn btn-default' id='addBtn'>添加商品</button>
+        <table class='table table-bordered table-hover mt_20'>
+            <thead>
+            <tr>
+                <th width=10%>序号</th>
+                <th width=30%>商品名称</th>
+                <th width=20%>商品描述</th>
+                <th width=10%>商品库存</th>
+                <th width=10%>商品尺寸</th>
+                <th width=10%>商品状态</th>
+                <th width=10%>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+        <!--坑-->
+            </tbody>
+        </table>
+
+
+<!--分页-->
+
+
+        <div class='pull-right'>
+            <ul id='paginator'>
+
+            </ul>
+        </div>
+
+
+        <!--模态框-->
+        <div class="modal fade" id="productModal" tabindex="-1">
+            <!-- 模态框 -->
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <form id="form">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                            <h4 class="modal-title">添加分类</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class='form-group'>
+
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" >
+                                        <span id='dropdownText'>选择二级分类</span>
+
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id='str2'>
+
+                                        <!--动态渲染-->
+
+
+
+                                    </ul>
+                                </div>
+                                <!--准备两个input -->
+                                <input type="hidden" name='brandId' id='brandId' >
+                                <input type="hidden" name='statu' value=1>
+
+                            </div>
+                            <!--选择下拉框-->
+                            <div class='form-group' >
+                                <input type="text"  name='proName' class='form-control' placeholder='请输入商品名称'>
+                            </div>
+                            <!--名称-->
+                            <div class='form-group' >
+                                <textarea name="proDesc"  cols="3" rows="4" class='form-control' placeholder='请输入商品描述'></textarea>
+
+                            </div>
+                            <!--描述-->
+                            <div class='form-group' >
+                                <input type="text"  name='num' class='form-control' placeholder='请输入商品库存'>
+                            </div>
+
+                            <!--库存-->
+                            <div class='form-group' >
+                                <input type="text"  name='size' class='form-control' placeholder='请输入商品尺码'>
+                            </div>
+
+                            <!--尺码-->
+                            <div class='form-group' >
+                                <input type="text"  name='oldPrice' class='form-control' placeholder='请输入商品原价'>
+                            </div>
+
+                            <!--原价-->
+                            <div class='form-group' >
+                                <input type="text"  name='price' class='form-control' placeholder='请输入商品现价'>
+                            </div>
+
+
+                            <!--现价-->
+                            <div class='form-group'>
+                                <label for='fileupload' class="btn btn-default">
+                                    上传图片
+                                </label>
+                                <input type="file" name='pic1' multiple id='fileupload' style='display: none'>
+
+                            </div>
+
+                            <!--上传-->
+                            <div class='form-group' >
+
+
+                                <input type="hidden" name='picStatus' >
+                            </div>
+                            <!--图片-->
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-primary">添加</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
 
 
         <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -77,13 +201,48 @@
 
 </div>
 
+<script type=text/html id='tmp'>
+    {{each rows v i}}
+    <tr>
+        <td>{{i+1+(page-1)*size}}</td>
+        <td>{{v.proName}}</td>
+        <td>{{v.proDesc}}</td>
+        <td>{{v.num}}</td>
+        <td>{{v.size}}</td>
+        {{if v.statu===1}}
+        <td>已上架</td>
+        {{else}}
+        <td>已下架</td>
+        {{/if}}
+        <td>
+        {{if v.statu===1}}
+        <button class='btn  btn-danger'>下架</button>
+        {{else}}
+        <button class='btn  btn-danger'>上架</button>
+        {{/if}}
+        </td>
+    </tr>
+    {{/each}}
+</script>
+<script type=text/html id='tmp2'>
+{{each rows v i }}
+    <li><a href="#" data-id='{{v.id}}'>{{v.brandName}}</a></li>
+
+{{/each}}
+</script>
+
 
 <script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="./js/common.js"></script>
-<script src='./js/index.js'></script>
+<script src='./js/product.js'></script>
 <script src='./js/islogin.js'></script>
 
 </body>
